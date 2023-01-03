@@ -1,0 +1,31 @@
+@import "variables";
+
+@mixin width($size) {
+  flex-basis: $size;
+  max-width: $size;
+}
+
+.row, .r {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: $uxwb-margin-y-size $uxwb-margin-x-size;
+  @include width($uxwb-grid-size);
+
+  .col, .c {
+    box-sizing: border-box;
+    flex: 1 0 fit-content;
+    padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+  }
+
+  @for $i from 1 through $uxwb-grid-count {
+    .col-#{$i}, .c#{$i} {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+      @include width(calc($uxwb-grid-size * $i / $uxwb-grid-count));
+    }
+  }
+}

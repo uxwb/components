@@ -1,0 +1,55 @@
+@import "variables";
+
+*, :after, :before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: $uxwb-base-size;
+  font-family: $uxwb-font-family-sans-serif;
+  background-color: $uxwb-color-white;
+  line-height: $uxwb-line-height;
+}
+
+pre, code {
+  display: block;
+  font-size: $uxwb-base-size*.9;
+  font-family: $uxwb-font-family-monospace;
+  font-weight: 100;
+}
+
+hr {
+  margin: $uxwb-base-size 0;
+  opacity: 0.25;
+}
+
+:active, :hover, :focus {
+  outline: 0 !important;
+  outline-offset: 0 !important;
+  //user-select: none !important;
+  box-shadow: none !important;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: $uxwb-base-size + $uxwb-base-size*(7-$i)*.2;
+  }
+}
+
+table {
+  width: 100%;
+  vertical-align: top;
+  caption-side: bottom;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: 1px solid $uxwb-color-grey;
+  }
+
+  th, td {
+    text-align: left;
+    padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+  }
+}

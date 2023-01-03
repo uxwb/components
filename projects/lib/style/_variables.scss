@@ -1,0 +1,52 @@
+$uxwb-color-blue: #4B72A6 !default;
+$uxwb-color-green: #5BA698 !default;
+$uxwb-color-yellow: #F2B263 !default;
+$uxwb-color-red: #F2B28D !default;
+$uxwb-color-grey: #F2F2F2 !default;
+$uxwb-color-white: #FFFFFF !default;
+$uxwb-color-black: #000000 !default;
+
+$uxwb-colors: (
+        "-black": $uxwb-color-black,
+        "-white": $uxwb-color-white,
+        "-grey": $uxwb-color-grey,
+        "-red": $uxwb-color-red,
+        "-yellow": $uxwb-color-yellow,
+        "-green": $uxwb-color-green,
+        "-blue": $uxwb-color-blue
+) !default;
+
+$uxwb-text-colors: (
+        "-black": invert($uxwb-color-black, 100%),
+        "-white": invert($uxwb-color-white, 100%),
+        "-grey": darken($uxwb-color-grey, 80%),
+        "-red": darken($uxwb-color-red, 50%),
+        "-yellow": darken($uxwb-color-yellow, 50%),
+        "-green": lighten($uxwb-color-green, 35%),
+        "-blue": lighten($uxwb-color-blue, 35%)
+) !default;
+
+$uxwb-prefix: (
+        "t": "-top",
+        "l": "-left",
+        "b": "-bottom",
+        "r": "-right",
+) !default;
+
+$uxwb-base-size: 1rem !default;
+$uxwb-radius-size: $uxwb-base-size*.5 !default;
+$uxwb-line-size: 1px !default;
+
+$uxwb-margin-x-size: $uxwb-base-size*.75 !default;
+$uxwb-margin-y-size: $uxwb-base-size*.5 !default;
+$uxwb-padding-x-size: $uxwb-base-size*.75 !default;
+$uxwb-padding-y-size: $uxwb-base-size*.5 !default;
+
+
+$uxwb-font-family-sans-serif: -apple-system, Ubuntu, Roboto, Arial, sans-serif !default;
+$uxwb-font-family-monospace: "Ubuntu Mono", Consolas, "Courier New", monospace !default;
+$uxwb-line-height: 1.2 !default;
+
+$uxwb-grid-size: 100% !default;
+$uxwb-grid-count: 12 !default;
+

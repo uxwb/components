@@ -1,0 +1,22 @@
+<div class="uxwb-block" [uxwbContent]="title">
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let item of list; let i = index; trackBy:trackFn"
+            (click)="do(i, item)" [class.uxwb-click]="item.meta"
+            class="list-group-item d-flex justify-content-between align-items-start"
+            [class.uxwb-list__active]="curr === i"
+        >
+            <div class="ms-2 me-auto">
+                <div><b>{{item.title}}</b></div>
+                <span *ngIf="item.description">{{item.description}}</span>
+            </div>
+            <ng-container *ngIf="item.badge">
+            <span
+                    *ngFor="let b of item.badge"
+                    class="badge rounded-pill"
+                    [uxwbClass]="b"
+                    [uxwbClassList]="badgeClass"
+            >{{b}}</span>
+            </ng-container>
+        </li>
+    </ul>
+</div>
