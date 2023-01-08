@@ -1,0 +1,75 @@
+@use "sass:map";
+@import "../core/variables";
+
+:host {
+  display: block;
+}
+
+.tab {
+  display: flex;
+  flex-flow: row wrap;
+  border-width: 0;
+  border-style: solid;
+  border-bottom-width: $uxwb-line-size;
+  padding-bottom: $uxwb-padding-y-size;
+  margin-bottom: $uxwb-margin-y-size;
+
+  &__item {
+    margin: $uxwb-margin-y-size 0 0 0;
+    padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+    border-style: solid;
+    border-width: 0;
+  }
+}
+
+.tab--style {
+  .tab {
+    padding-bottom: 0;
+
+    &__item--active {
+      border-radius: $uxwb-radius-size $uxwb-radius-size 0 0;
+      border-bottom: 0;
+    }
+  }
+}
+
+.tab--style-btn {
+  .tab {
+    padding-bottom: $uxwb-padding-y-size;
+    border-style: none;
+
+    &__item--active {
+      border-radius: $uxwb-radius-size $uxwb-radius-size;
+    }
+  }
+}
+
+.tab--style-line {
+  .tab {
+    padding-bottom: 0;
+    border-style: dashed;
+
+    &__item--active {
+      background-color: $uxwb-color-white !important;
+      color: $uxwb-color-black !important;
+      border-bottom-width: $uxwb-line-size*4;
+      font-weight: $uxwb-font-weight;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+@each $c, $v in $uxwb-colors {
+  .tab--color#{$c} {
+    .tab {
+      border-color: darken($v, 10%);
+
+      &__item--active {
+        background-color: $v;
+        color: map.get($uxwb-text-colors, $c);
+        border-color: darken($v, 10%);
+      }
+    }
+  }
+}
+

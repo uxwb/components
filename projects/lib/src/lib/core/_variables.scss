@@ -7,6 +7,7 @@ $uxwb-color-white: #FFFFFF !default;
 $uxwb-color-black: #000000 !default;
 
 $uxwb-colors: (
+        "": $uxwb-color-white,
         "-black": $uxwb-color-black,
         "-white": $uxwb-color-white,
         "-grey": $uxwb-color-grey,
@@ -17,6 +18,7 @@ $uxwb-colors: (
 ) !default;
 
 $uxwb-text-colors: (
+        "": invert($uxwb-color-white, 100%),
         "-black": invert($uxwb-color-black, 100%),
         "-white": invert($uxwb-color-white, 100%),
         "-grey": darken($uxwb-color-grey, 80%),
@@ -36,6 +38,7 @@ $uxwb-prefix: (
 $uxwb-base-size: 1rem !default;
 $uxwb-radius-size: $uxwb-base-size*.5 !default;
 $uxwb-line-size: 1px !default;
+$uxwb-font-weight: bolder !default;
 
 $uxwb-margin-x-size: $uxwb-base-size*.75 !default;
 $uxwb-margin-y-size: $uxwb-base-size*.5 !default;

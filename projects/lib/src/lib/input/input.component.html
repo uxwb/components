@@ -1,8 +1,13 @@
-<div class="uxwb-block" [uxwbContent]="title">
-    <input
-            type="text"
-            class="uxwb-input"
-            [ngModel]="data"
-            (focusout)="do($event)"
-    >
+<div class="{{color|dash:'input--color'}}">
+    <div class="input__group">
+        <input
+                [ngModel]="value"
+                [type]="type"
+                (input)="input($event)"
+                (change)="input($event)"
+                (focusout)="focusOut()"
+                (focusin)="focusIn()"
+        >
+        <label *ngIf="title && title.length >0">{{title}}</label>
+    </div>
 </div>

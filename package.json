@@ -5,10 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve demo --watch",
+    "build:demo": "ng build demo",
     "build": "ng build lib",
     "watch": "ng build lib --watch",
     "lint": "ng lint lib --fix",
-    "style": "sass projects/lib/style/_index.scss projects/lib/style/_index.css"
+    "style": "sass projects/lib/src/lib/core/_index.scss projects/lib/src/lib/core/_index.css"
   },
   "engines": {
     "node": "^14.15.0 || ^16.10.0",

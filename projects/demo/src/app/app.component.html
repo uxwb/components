@@ -1,1 +1,391 @@
 
+<div class="row">
+    <div class="col">
+
+        <uxwb-tab [default]="'Guide'" [color]="'blue'" [style]="'btn'" (switch)="logString($event)">
+            <ng-template [tab]="'Guide'">
+                <div class="r">
+                    <div class="c12">
+                        <h3 class="m-1">Installation</h3>
+                        <code class="box pre">
+                            npm i @uxwb/components --save
+                        </code>
+                    </div>
+                    <div class="c12">
+                        <h3 class="m-1">styles.scss</h3>
+                        <code class="box pre">
+                            @import "@uxwb/components";
+                        </code>
+                    </div>
+                    <div class="c12">
+                        <h3 class="m-1">app.module.ts</h3>
+                        <pre class="box pre">{{'
+                            import { UxwbComponentsModule } from "@uxwb/components";
+
+                            @NgModule({
+                            ...
+                            imports: [
+                              ...
+                              UxwbComponentsModule,
+                            ],
+                            ...
+                            })
+                            '}}
+                        </pre>
+                    </div>
+                    <div class="c12">
+                        <h3 class="m-1">links</h3>
+                        <code class="box pre">
+                            See in <a target="_blank" href="https://www.npmjs.com/package/@uxwb/components">npmjs</a>
+                        </code>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template [tab]="'CSS Only'">
+
+                <uxwb-tab [default]="'Flex Grid'" [color]="'red'" [style]="'line'" (switch)="logString($event)">
+
+                    <ng-template [tab]="'Flex Grid'">
+                        <app-tmpl>
+                        <pre #code>
+                            row class: .r / .row
+                            col class: .c / .col
+
+
+                            <div class="row">
+                                <div class="col">...</div>
+                            </div>
+
+                            <div class="r">
+                                <div class="c">...</div>
+                            </div>
+                        </pre>
+                            <div #preview >
+                                <div class="row">
+                                    <div class="col box">.col</div>
+                                    <div class="col box">.col</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col box">.col</div>
+                                    <div class="col box">.col</div>
+                                    <div class="col box">.col</div>
+                                    <div class="col box">.col</div>
+                                </div>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Fix Grid'">
+                        <app-tmpl>
+                        <pre #code>
+                            row class: .r / .row
+                            col class: .c1..12 / .col-1..12
+
+                            <div class="row">
+                                <div class="col-2">...</div>
+                                <div class="col-6">...</div>
+                            </div>
+
+                            <div class="r">
+                                <div class="c2">...</div>
+                                <div class="c6">...</div>
+                            </div>
+                        </pre>
+                            <div #preview >
+                                <div class="row">
+                                    <div class="col-2 box">.col-2</div>
+                                    <div class="col-6 box">.col-6</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2 box">.col-2</div>
+                                    <div class="col-3 box">.col-3</div>
+                                    <div class="col-5 box">.col-5</div>
+                                    <div class="col-2 box">.col-2</div>
+                                </div>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Box'">
+                        <app-tmpl>
+                        <pre #code>
+                            base class: .box
+                            color class: .box-white .box-grey .box-red .box-yellow .box-green .box-blue .box-black
+
+                            <div class="box">.box</div>
+                            <div class="box-white box">.box .box-white</div>
+                        </pre>
+                            <div #preview >
+                                <div class="box">.box</div>
+                                <div class="box-white box">.box .box-white</div>
+                                <div class="box-grey box">.box .box-grey</div>
+                                <div class="box-red box">.box .box-red</div>
+                                <div class="box-yellow box">.box .box-yellow</div>
+                                <div class="box-green box">.box .box-green</div>
+                                <div class="box-blue box">.box .box-blue</div>
+                                <div class="box-black box">.box .box-black</div>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Text Color'">
+                        <app-tmpl>
+                        <pre #code>
+                            base class: .box
+                            color class: .tc-white .tc-grey .tc-red .tc-yellow .tc-green .tc-blue .tc-black
+
+                            <div class="tc-green">.tc-green</div>
+                            <div class="tc-blue">.tc-blue</div>
+                        </pre>
+                            <div #preview >
+                                <div class="tc-white">.tc-white</div>
+                                <div class="tc-grey">.tc-grey</div>
+                                <div class="tc-red">.tc-red</div>
+                                <div class="tc-yellow">.tc-yellow</div>
+                                <div class="tc-green">.tc-green</div>
+                                <div class="tc-blue">.tc-blue</div>
+                                <div class="tc-black">.tc-black</div>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Headings'">
+                        <app-tmpl>
+                        <pre #code>
+                            <h1>h1. Heading</h1>
+                            <h2>h2. Heading</h2>
+                        </pre>
+                            <div #preview >
+                                <h1>h1. Heading</h1>
+                                <h2>h2. Heading</h2>
+                                <h3>h3. Heading</h3>
+                                <h4>h4. Heading</h4>
+                                <h5>h5. Heading</h5>
+                                <h6>h6. Heading</h6>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Blockquotes'">
+                        <app-tmpl>
+                        <pre #code>
+                            base class: .bq
+                            color class: .bq-white .bq-grey .bq-red .bq-yellow .bq-green .bq-blue .bq-black
+
+                            <blockquote class="bq">
+                                <p>.bq</p>
+                            </blockquote>
+                            <blockquote class="bq bq-white">
+                                <p>.bq .bq-white</p>
+                            </blockquote>
+                        </pre>
+                            <div #preview >
+                                <blockquote class="bq">
+                                    <p>.bq</p>
+                                </blockquote>
+                                <blockquote class="bq bq-white">
+                                    <p>.bq .bq-white</p>
+                                </blockquote>
+                                <blockquote class="bq bq-grey">
+                                    <p>.bq .bq-grey</p>
+                                </blockquote>
+                                <blockquote class="bq bq-red">
+                                    <p>.bq .bq-red</p>
+                                </blockquote>
+                                <blockquote class="bq bq-yellow">
+                                    <p>.bq .bq-yellow</p>
+                                </blockquote>
+                                <blockquote class="bq bq-green">
+                                    <p>.bq .bq-green</p>
+                                </blockquote>
+                                <blockquote class="bq bq-blue">
+                                    <p>.bq .bq-blue</p>
+                                </blockquote>
+                                <blockquote class="bq bq-black">
+                                    <p>.bq .bq-black</p>
+                                </blockquote>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Text Align'">
+                        <app-tmpl>
+                        <pre #code>
+                            class: .ta-l .ta-c .ta-r
+                        </pre>
+                            <div #preview >
+                                <div class="ta-l box">.ta-l</div>
+                                <div class="ta-c box">.ta-c</div>
+                                <div class="ta-r box">.ta-r</div>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Table'">
+                        <app-tmpl>
+                        <pre #code>
+                            <table>
+                                <tr>
+                                    <th>...</th>
+                                </tr>
+                                <tr>
+                                    <td>...</td>
+                                </tr>
+                            </table>
+                        </pre>
+                            <div #preview >
+                                <table>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>City</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Harly</td>
+                                        <td>SPb</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Joy</td>
+                                        <td>SPb</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+
+
+                </uxwb-tab>
+
+            </ng-template>
+
+            <ng-template [tab]="'Angular Components'">
+
+                <uxwb-tab [default]="'Tabs'" [color]="'yellow'" [style]="'line'" (switch)="logString($event)">
+
+                    <ng-template [tab]="'Tabs'">
+                        <app-tmpl>
+                        <pre #code>
+                            tag: uxwb-tab
+                            attributes:
+                                [default] - tab by default
+                                [color] - color scheme ('' | 'black' | 'white' | 'grey' | 'red' | 'yellow' | 'green' | 'blue')
+                                [style] - display style ('' | 'btn' | 'line')
+                                (switch) - callback with active tab name
+
+
+                            &lt;uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="'line'" (switch)="callback($event)"&gt;
+                                &lt;ng-template [tab]="'Tab1'"&gt;
+                                    tab 1
+                                &lt;/ng-template&gt;
+                                &lt;ng-template [tab]="'Tab2'"&gt;
+                                    tab 2
+                                &lt;/ng-template&gt;
+                            &lt;/uxwb-tab&gt;
+                        </pre>
+                            <div #preview >
+
+                                <uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="''" (switch)="callback($event)">
+                                    <ng-template [tab]="'Tab1'">
+                                        tab 1
+                                    </ng-template>
+                                    <ng-template [tab]="'Tab2'">
+                                        tab 2
+                                    </ng-template>
+                                </uxwb-tab>
+
+                                <uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="'btn'" (switch)="callback($event)">
+                                    <ng-template [tab]="'Tab1'">
+                                        tab 1
+                                    </ng-template>
+                                    <ng-template [tab]="'Tab2'">
+                                        tab 2
+                                    </ng-template>
+                                </uxwb-tab>
+
+                                <uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="'line'" (switch)="callback($event)">
+                                    <ng-template [tab]="'Tab1'">
+                                        tab 1
+                                    </ng-template>
+                                    <ng-template [tab]="'Tab2'">
+                                        tab 2
+                                    </ng-template>
+                                </uxwb-tab>
+
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'Input'">
+                        <app-tmpl>
+                        <pre #code>
+                            tag: uxwb-input
+                            attributes:
+                                [type] - input type ('text' | 'password' | 'color' | 'date' | 'datetime-local' | 'email' | 'number' | 'tel' | 'search')
+                                [color] - color scheme ('' | 'black' | 'white' | 'grey' | 'red' | 'yellow' | 'green' | 'blue')
+
+                            &lt;uxwb-input [title]="'text'" [type]="'text'" [color]="'red'"&gt;&lt;/uxwb-input&gt;
+                        </pre>
+                            <div #preview>
+                                <div class="box mb-1">
+                                    result: {{inputData}}
+                                </div>
+
+                                <div class="r">
+                                    <uxwb-input [title]="'text'" [type]="'text'" [color]="'red'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'password'" [type]="'password'" [color]="'blue'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'tel'" [type]="'tel'" [color]="'black'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'email'" [type]="'email'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'number'" [type]="'number'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'search'" [type]="'search'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'color'" [type]="'color'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'date'" [type]="'date'" [color]="'green'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'datetime-local'" [type]="'datetime-local'" [color]="'yellow'" [(data)]="inputData"></uxwb-input>
+                                </div>
+
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                    <ng-template [tab]="'List'">
+                        <app-tmpl>
+                        <pre #code>
+                            tag: uxwb-list
+                            attributes:
+                                [data] - list data array (format: {{'[]{key:unique key, name:title, 1st line, desc:description, 2nd line})'}}
+                                [style] - display style ('' | 'line')
+                                [color] - color scheme ('' | 'black' | 'white' | 'grey' | 'red' | 'yellow' | 'green' | 'blue')
+                                (selected) - callback with selected line key
+
+                            &lt;uxwb-list [data]="..." [style]="'line'" [color]="'red'" (selected)="callback($event)"&gt;&lt;/uxwb-list&gt;
+                        </pre>
+                            <div #preview>
+                                <div class="r">
+                                    <uxwb-list [data]="listData" [color]="''" [style]="'line'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [color]="'white'" [style]="'line'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [color]="'grey'" [style]="'line'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [color]="'red'" [style]="'line'" (selected)="callback($event)"></uxwb-list>
+                                    <uxwb-list [data]="listData" [color]="'yellow'" [style]="''"></uxwb-list>
+                                    <uxwb-list [data]="listData" [color]="'green'" [style]="''"></uxwb-list>
+                                    <uxwb-list [data]="listData" [color]="'blue'" [style]="''"></uxwb-list>
+                                    <uxwb-list [data]="listData" [color]="'black'" [style]="''"></uxwb-list>
+                                </div>
+                            </div>
+                        </app-tmpl>
+                    </ng-template>
+
+                </uxwb-tab>
+
+            </ng-template>
+
+
+        </uxwb-tab>
+
+    </div>
+</div>
+

@@ -1,3 +1,74 @@
+@use "sass:map";
+@import "../core/variables";
+
 :host {
   display: block;
+}
+
+.list__group {
+  .list__item {
+    list-style: none;
+    display: block;
+    padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+  }
+}
+
+.list--style {
+  .list__group {
+    .list__item {
+      border-width: $uxwb-line-size;
+      border-bottom-width: 0;
+      border-style: solid;
+    }
+
+    .list__item:first-child {
+      border-radius: $uxwb-radius-size $uxwb-radius-size 0 0;
+    }
+
+    .list__item:last-child {
+      border-bottom-width: $uxwb-line-size;
+      border-radius: 0 0 $uxwb-radius-size $uxwb-radius-size;
+    }
+  }
+}
+
+.list--style-line {
+  .list__group {
+    .list__item {
+      border-width: 0;
+      border-bottom-width: $uxwb-line-size;
+      border-style: solid;
+    }
+
+    .list__item:last-child {
+      border-bottom-width: 0;
+    }
+  }
+}
+
+@each $c, $v in $uxwb-colors {
+  .list--color#{$c} {
+    .list__item {
+      border-color: darken($v, 10%);
+
+      &:hover {
+        background-color: $uxwb-color-grey;
+      }
+
+      &--active {
+        background-color: $v;
+        border-color: darken($v, 10%);
+        color: map.get($uxwb-text-colors, $c);
+
+        &:hover {
+          background-color: $v;
+        }
+      }
+
+      .list__item-desc {
+        font-size: $uxwb-base-size*.8;
+        padding-top: $uxwb-padding-y-size;
+      }
+    }
+  }
 }

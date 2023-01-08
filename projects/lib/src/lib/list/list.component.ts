@@ -1,4 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Colors } from '../core/variables';
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export type ListStyle = '' | 'line';
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export interface ListData {
+  key: string;
+
+  name: string;
+
+  desc?: string;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @Component({
   selector: 'uxwb-list',
@@ -6,32 +23,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  badgeClass = ['bg-primary', 'bg-secondary', 'bg-success', 'bg-info', 'bg-warning', 'bg-danger'];
+  key?:string;
 
-  curr?:number;
+  @Input() color: Colors = '';
 
-  @Input() title?: string;
+  @Input() style: ListStyle = '';
 
-  @Input() list: ListModel[] = [];
+  @Input() data: ListData[] = [];
 
-  @Output() event: EventEmitter<ListModel> = new EventEmitter();
+  @Output() selected = new EventEmitter<string>();
 
-  do(i: number, v: ListModel): void {
-    this.curr = i;
-    this.event.emit(v);
+  emitData(key: string): void {
+    this.key = key;
+    this.selected.emit(key);
   }
-
-  trackFn(i: number, v: ListModel): any {
-    return v.title;
-  }
-}
-
-export class ListModel {
-  title!: string;
-
-  description?: string;
-
-  meta: any;
-
-  badge?: string[];
 }

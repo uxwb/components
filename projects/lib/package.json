@@ -1,6 +1,6 @@
 {
   "name": "@uxwb/components",
-  "version": "14.0.2",
+  "version": "14.0.3",
   "description": "UI components for Angular",
   "author": "@uxwb <uxwb@dewep.pro> (https://github.com/deweppro)",
   "license": "BSD-3-Clause",
@@ -29,8 +29,8 @@
   },
   "exports": {
     ".": {
-      "sass": "./style/_index.scss",
-      "style": "./style/_index.css"
+      "sass": "./lib/core/_index.scss",
+      "style": "./lib/core/_index.css"
     }
   }
 }

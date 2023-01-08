@@ -1,0 +1,14 @@
+<div class="{{color|dash:'tab--color'}} {{style|dash:'tab--style'}}">
+    <div class="tab">
+        <div
+                *ngFor="let item of tabs"
+                class="click tab__item"
+                [class.tab__item--active]="curr === item"
+                (click)="setTab(item)"
+        >
+            {{ item }}
+        </div>
+    </div>
+</div>
+<div class="mt-1 mb-1" #content></div>
+

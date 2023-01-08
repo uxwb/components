@@ -73,8 +73,7 @@
               "extractLicenses": true,
               "sourceMap": false,
               "namedChunks": true,
-              "aot": true,
-              "localize": true
+              "aot": true
             },
             "development": {
               "buildOptimizer": true,
@@ -84,8 +83,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "aot": true,
-              "localize": false
+              "aot": true
             }
           },
           "defaultConfiguration": "production"
@@ -123,7 +121,7 @@
       "projectType": "library",
       "root": "projects/lib",
       "sourceRoot": "projects/lib/src",
-      "prefix": "ss",
+      "prefix": "uxwb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

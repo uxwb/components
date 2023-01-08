@@ -1,5 +1,9 @@
 # @uxwb/components
 
+## Demo
+
+see [here](https://uxwb.ru/)
+
 ## Installation
 
 ```bash
@@ -33,3 +37,8 @@ import { UxwbComponentsModule } from '@uxwb/components';
 
 * uxwb-list
 * uxwb-input
+* uxwb-tab
+
+## License
+
+BSD-3-Clause License. See the LICENSE file for details.

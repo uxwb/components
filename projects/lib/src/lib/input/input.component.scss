@@ -1,3 +1,63 @@
+@use "sass:map";
+@import "../core/variables";
+
 :host {
   display: block;
+}
+
+.input__group {
+  position: relative;
+  border-style: solid;
+  border-width: $uxwb-line-size;
+  border-radius: $uxwb-radius-size;
+  padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+
+  height: $uxwb-base-size*2.32;
+
+  input {
+    background: none;
+    border: 0;
+    vertical-align: middle;
+    margin-top: -$uxwb-base-size*0.2;
+    width: 100%;
+    min-width: $uxwb-base-size*3;
+  }
+
+  label {
+    position: absolute;
+    left: 10px;
+    transform: translateY(-100%) scale(0.8);
+    background: white;
+  }
+}
+
+
+@each $c, $v in $uxwb-colors {
+  .input--color#{$c} {
+    .input__group {
+      border-color: $v;
+    }
+
+    input {
+      color: $v;
+    }
+
+    label {
+      color: $v;
+    }
+  }
+}
+
+.input--color {
+  .input__group {
+    border-color: lighten($uxwb-color-black, 80%);
+  }
+
+  input {
+    color: $uxwb-color-black;
+  }
+
+  label {
+    color: $uxwb-color-black;
+  }
 }

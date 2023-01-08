@@ -27,6 +27,7 @@ lint:
 
 build:
 	yarn run style && yarn run build && cp ./projects/lib/README.md ./README.md
+	yarn run build:demo
 
 patch:
 	cd projects/lib && yarn version --patch --no-git-tag-version --no-commit-hooks
