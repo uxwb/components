@@ -1,6 +1,6 @@
 {
   "name": "@uxwb/components",
-  "version": "14.0.5",
+  "version": "14.0.7",
   "description": "UI components for Angular",
   "author": "@uxwb <uxwb@dewep.pro> (https://github.com/deweppro)",
   "license": "BSD-3-Clause",
@@ -16,6 +16,7 @@
   "keywords": [
     "angular2",
     "ui",
+    "ngx",
     "web-components"
   ],
   "peerDependencies": {
@@ -29,8 +30,24 @@
   },
   "exports": {
     ".": {
-      "sass": "./lib/core/_index.scss",
-      "style": "./lib/core/_index.css"
+      "sass": "./lib/core/pack.scss",
+      "style": "./lib/core/pack.css"
+    },
+    "./themes/rainbow": {
+      "sass": "./themes/rainbow.scss",
+      "style": "./themes/rainbow.css"
+    },
+    "./themes/summer": {
+      "sass": "./themes/summer.scss",
+      "style": "./themes/summer.css"
+    },
+    "./themes/tenderness": {
+      "sass": "./themes/tenderness.scss",
+      "style": "./themes/tenderness.css"
+    },
+    "./themes/twilight": {
+      "sass": "./themes/twilight.scss",
+      "style": "./themes/twilight.css"
     }
   }
 }

@@ -6,9 +6,7 @@
     "cssUrl": "inline"
   },
   "assets": [
-    { "input": "src/lib/core", "glob": "**/*.scss", "output": "lib/core" },
-    { "input": "src/lib/core", "glob": "**/*.css", "output": "lib/core" },
-    { "input": "src/themes", "glob": "**/*.css", "output": "themes" },
-    { "input": "src/themes", "glob": "**/*.scss", "output": "themes" }
+    { "input": "src/lib/core", "glob": "**/pack.*css", "output": "lib/core" },
+    { "input": "src/themes", "glob": "**/*.*css", "output": "themes" }
   ]
 }

@@ -9,7 +9,10 @@
     "build": "ng build lib",
     "watch": "ng build lib --watch",
     "lint": "ng lint lib --fix",
-    "style": "sass projects/lib/src/lib/core/_index.scss projects/lib/src/lib/core/_index.css --style compressed && sass projects/lib/src/themes:projects/lib/src/themes --style compressed"
+    "style:scss": "sass projects/lib/src/lib/core/_index.scss projects/lib/src/lib/core/pack.scss --no-source-map",
+    "style:css": "sass projects/lib/src/lib/core/_index.scss projects/lib/src/lib/core/pack.css --style compressed --no-source-map",
+    "style:themes": "sass projects/lib/src/themes:projects/lib/src/themes --style compressed --no-source-map",
+    "style": "yarn run style:scss && yarn run style:css && yarn run style:themes"
   },
   "engines": {
     "node": "^16.13.0 || >=18.10.0",
