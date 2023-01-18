@@ -9,7 +9,7 @@
     "build": "ng build lib",
     "watch": "ng build lib --watch",
     "lint": "ng lint lib --fix",
-    "style": "sass projects/lib/src/lib/core/_index.scss projects/lib/src/lib/core/_index.css"
+    "style": "sass projects/lib/src/lib/core/_index.scss projects/lib/src/lib/core/_index.css --style compressed && sass projects/lib/src/themes:projects/lib/src/themes --style compressed"
   },
   "engines": {
     "node": "^16.13.0 || >=18.10.0",

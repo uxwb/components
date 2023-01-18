@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "../core/variables";
+@use "../core/variables" as glob;
 
 :host {
   display: block;
@@ -10,13 +10,13 @@
   flex-flow: row wrap;
   border-width: 0;
   border-style: solid;
-  border-bottom-width: $uxwb-line-size;
-  padding-bottom: $uxwb-padding-y-size;
-  margin-bottom: $uxwb-margin-y-size;
+  border-bottom-width: glob.$uxwb-line-size;
+  padding-bottom: glob.$uxwb-padding-y-size;
+  margin-bottom: glob.$uxwb-margin-y-size;
 
   &__item {
-    margin: $uxwb-margin-y-size 0 0 0;
-    padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+    margin: glob.$uxwb-margin-y-size 0 0 0;
+    padding: glob.$uxwb-padding-y-size glob.$uxwb-padding-x-size;
     border-style: solid;
     border-width: 0;
   }
@@ -27,7 +27,7 @@
     padding-bottom: 0;
 
     &__item--active {
-      border-radius: $uxwb-radius-size $uxwb-radius-size 0 0;
+      border-radius: glob.$uxwb-radius-size glob.$uxwb-radius-size 0 0;
       border-bottom: 0;
     }
   }
@@ -35,11 +35,11 @@
 
 .tab--style-btn {
   .tab {
-    padding-bottom: $uxwb-padding-y-size;
+    padding-bottom: glob.$uxwb-padding-y-size;
     border-style: none;
 
     &__item--active {
-      border-radius: $uxwb-radius-size $uxwb-radius-size;
+      border-radius: glob.$uxwb-radius-size glob.$uxwb-radius-size;
     }
   }
 }
@@ -50,24 +50,24 @@
     border-style: dashed;
 
     &__item--active {
-      background-color: $uxwb-color-white !important;
-      color: $uxwb-color-black !important;
-      border-bottom-width: $uxwb-line-size*4;
-      font-weight: $uxwb-font-weight;
+      background-color: glob.var-color-bg('-light') !important;
+      color: glob.var-color-text('-light') !important;
+      border-bottom-width: glob.$uxwb-line-size*4;
+      font-weight: glob.$uxwb-font-weight;
       margin-bottom: -1px;
     }
   }
 }
 
-@each $c, $v in $uxwb-colors {
+@each $c, $v in glob.$uxwb-colors {
   .tab--color#{$c} {
     .tab {
-      border-color: darken($v, 10%);
+      border-color: glob.var-color-line($c);
 
       &__item--active {
-        background-color: $v;
-        color: map.get($uxwb-text-colors, $c);
-        border-color: darken($v, 10%);
+        background-color: glob.var-color-bg($c);
+        color: glob.var-color-text($c);
+        border-color: glob.var-color-line($c);
       }
     }
   }

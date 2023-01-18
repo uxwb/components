@@ -1,4 +1,9 @@
-@import "variables";
-@import "html";
-@import "grid";
-@import "base";
+@forward "variables";
+
+@use "html";
+@use "grid";
+@use "base";
+
+@use "../tab/tab.component";
+@use "../input/input.component";
+@use "../list/list.component";

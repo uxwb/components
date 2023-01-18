@@ -13,11 +13,11 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { Colors } from '../core/variables';
+import { ColorsFull } from '../core/variables';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export type TabStyle = '' | 'btn' | 'line';
+export type TabStyle = 'btn' | 'line';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -37,7 +37,6 @@ export class TabDirective {
 @Component({
   selector: 'uxwb-tab',
   templateUrl: './tab.component.html',
-  styleUrls: ['./tab.component.scss'],
 })
 export class TabComponent implements AfterContentInit, AfterViewInit {
 
@@ -49,9 +48,9 @@ export class TabComponent implements AfterContentInit, AfterViewInit {
 
   @Input() default: string = '';
 
-  @Input() color: Colors = '';
+  @Input() color: ColorsFull = 'secondary';
 
-  @Input() style: TabStyle = '';
+  @Input() style: TabStyle = 'btn';
 
   @Output() switch: EventEmitter<string> = new EventEmitter<string>();
 

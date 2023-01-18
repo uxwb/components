@@ -1,14 +1,16 @@
 export enum Color {
   Default = '',
-  Black = 'black',
-  White = 'white',
-  Grey = 'grey',
-  Red = 'red',
-  Yellow = 'yellow',
-  Green = 'green',
-  Blue = 'blue',
+  Light = 'light',
+  Secondary = 'secondary',
+  Warning = 'warning',
+  Danger = 'danger',
+  Success = 'success',
+  Info = 'info',
+  Primary = 'primary',
+  Dark = 'dark',
 }
 
-export type Colors = '' | 'black' | 'white' | 'grey' | 'red' | 'yellow' | 'green' | 'blue';
+export type ColorsFull = 'light' | 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'primary' | 'dark';
+export type ColorsShort = 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'primary' | 'dark';
 
 export const Delay = 300;

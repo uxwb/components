@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "../core/variables";
+@use "../core/variables" as glob;
 
 :host {
   display: block;
@@ -8,56 +8,42 @@
 .input__group {
   position: relative;
   border-style: solid;
-  border-width: $uxwb-line-size;
-  border-radius: $uxwb-radius-size;
-  padding: $uxwb-padding-y-size $uxwb-padding-x-size;
-
-  height: $uxwb-base-size*2.32;
+  border-width: glob.$uxwb-line-size;
+  border-radius: glob.$uxwb-radius-size;
+  padding: glob.$uxwb-padding-y-size glob.$uxwb-padding-x-size;
 
   input {
     background: none;
     border: 0;
     vertical-align: middle;
-    margin-top: -$uxwb-base-size*0.2;
     width: 100%;
-    min-width: $uxwb-base-size*3;
+    min-width: glob.$uxwb-base-size*3;
+    font-size: glob.$uxwb-base-size*.8;
   }
 
   label {
     position: absolute;
-    left: 10px;
-    transform: translateY(-100%) scale(0.8);
+    left: glob.$uxwb-padding-x-size*1.2;
+    font-size: glob.$uxwb-base-size*.8;
+    top: -(glob.$uxwb-padding-y-size);
     background: white;
+    padding: 0 glob.$uxwb-base-size*.2;
   }
 }
 
 
-@each $c, $v in $uxwb-colors {
+@each $c, $v in glob.$uxwb-colors {
   .input--color#{$c} {
     .input__group {
-      border-color: $v;
+      border-color: glob.var-color-line($c);
     }
 
     input {
-      color: $v;
+      color: glob.var-color-bg('-dark');
     }
 
     label {
-      color: $v;
+      color: glob.var-color-bg($c);
     }
-  }
-}
-
-.input--color {
-  .input__group {
-    border-color: lighten($uxwb-color-black, 80%);
-  }
-
-  input {
-    color: $uxwb-color-black;
-  }
-
-  label {
-    color: $uxwb-color-black;
   }
 }

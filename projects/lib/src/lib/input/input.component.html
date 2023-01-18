@@ -1,5 +1,6 @@
 <div class="{{color|dash:'input--color'}}">
     <div class="input__group">
+        <label *ngIf="title && title.length >0">{{title}}</label>
         <input
                 [ngModel]="value"
                 [type]="type"
@@ -8,6 +9,5 @@
                 (focusout)="focusOut()"
                 (focusin)="focusIn()"
         >
-        <label *ngIf="title && title.length >0">{{title}}</label>
     </div>
 </div>

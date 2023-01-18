@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-import { Colors, Delay } from '../core/variables';
+import { ColorsShort, Delay } from '../core/variables';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -11,7 +11,6 @@ export type Type = 'text' | 'password' | 'color' | 'date' | 'datetime-local' | '
 @Component({
   selector: 'uxwb-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnDestroy {
   private sub$?: Subscription;
@@ -24,7 +23,7 @@ export class InputComponent implements OnDestroy {
   
   @Input() title?: string;
 
-  @Input() color: Colors = '';
+  @Input() color: ColorsShort = 'dark';
 
   @Input() type: Type = 'text';
 
