@@ -1,8 +1,12 @@
-@import "variables";
+@use "variables" as glob;
 
 @mixin width($size) {
   flex-basis: $size;
   max-width: $size;
+}
+
+@mixin calc-width($size, $id, $count) {
+  @include width(calc($size * $id / $count))
 }
 
 .row, .r {
@@ -11,21 +15,21 @@
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: $uxwb-margin-y-size $uxwb-margin-x-size;
-  @include width($uxwb-grid-size);
+  margin: glob.$uxwb-margin-y-size glob.$uxwb-margin-x-size;
+  @include width(glob.$uxwb-grid-size);
 
   .col, .c {
     box-sizing: border-box;
     flex: 1 0 fit-content;
-    padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+    padding: glob.$uxwb-padding-y-size glob.$uxwb-padding-x-size;
   }
 
-  @for $i from 1 through $uxwb-grid-count {
+  @for $i from 1 through glob.$uxwb-grid-count {
     .col-#{$i}, .c#{$i} {
       box-sizing: border-box;
       flex: 0 0 auto;
-      padding: $uxwb-padding-y-size $uxwb-padding-x-size;
-      @include width(calc($uxwb-grid-size * $i / $uxwb-grid-count));
+      padding: glob.$uxwb-padding-y-size glob.$uxwb-padding-x-size;
+      @include calc-width(glob.$uxwb-grid-size, $i, glob.$uxwb-grid-count);
     }
   }
 }

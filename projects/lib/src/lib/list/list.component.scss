@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "../core/variables";
+@use "../core/variables" as glob;
 
 :host {
   display: block;
@@ -9,25 +9,25 @@
   .list__item {
     list-style: none;
     display: block;
-    padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+    padding: glob.$uxwb-padding-y-size glob.$uxwb-padding-x-size;
   }
 }
 
-.list--style {
+.list--style-box {
   .list__group {
     .list__item {
-      border-width: $uxwb-line-size;
+      border-width: glob.$uxwb-line-size;
       border-bottom-width: 0;
       border-style: solid;
     }
 
     .list__item:first-child {
-      border-radius: $uxwb-radius-size $uxwb-radius-size 0 0;
+      border-radius: glob.$uxwb-radius-size glob.$uxwb-radius-size 0 0;
     }
 
     .list__item:last-child {
-      border-bottom-width: $uxwb-line-size;
-      border-radius: 0 0 $uxwb-radius-size $uxwb-radius-size;
+      border-bottom-width: glob.$uxwb-line-size;
+      border-radius: 0 0 glob.$uxwb-radius-size glob.$uxwb-radius-size;
     }
   }
 }
@@ -36,7 +36,7 @@
   .list__group {
     .list__item {
       border-width: 0;
-      border-bottom-width: $uxwb-line-size;
+      border-bottom-width: glob.$uxwb-line-size;
       border-style: solid;
     }
 
@@ -46,28 +46,45 @@
   }
 }
 
-@each $c, $v in $uxwb-colors {
+.list--style-btn {
+  .list__group {
+    .list__item {
+      border-width: 0;
+      border-radius: glob.$uxwb-radius-size;
+    }
+
+    .list__item:last-child {
+      border-bottom-width: 0;
+    }
+  }
+}
+
+@each $c, $v in glob.$uxwb-colors {
   .list--color#{$c} {
     .list__item {
-      border-color: darken($v, 10%);
+      border-color: glob.var-color-line($c);
+      background-color: glob.var-color-bg('-light');
+      color: glob.var-color-text('-light');
 
       &:hover {
-        background-color: $uxwb-color-grey;
+        background-color: glob.var-color-bg('-hover');
+        color: glob.var-color-text('-hover');
       }
 
       &--active {
-        background-color: $v;
-        border-color: darken($v, 10%);
-        color: map.get($uxwb-text-colors, $c);
+        background-color: glob.var-color-bg($c);
+        border-color: glob.var-color-line($c);
+        color: glob.var-color-text($c);
 
         &:hover {
-          background-color: $v;
+          background-color: glob.var-color-bg($c);
+          color: glob.var-color-text($c);
         }
       }
 
       .list__item-desc {
-        font-size: $uxwb-base-size*.8;
-        padding-top: $uxwb-padding-y-size;
+        font-size: glob.$uxwb-base-size*.8;
+        padding-top: glob.$uxwb-padding-y-size;
       }
     }
   }

@@ -1,8 +1,18 @@
+<div class="row pallet">
+    <div class="bg-light c">&nbsp;</div>
+    <div class="bg-secondary c">&nbsp;</div>
+    <div class="bg-warning c">&nbsp;</div>
+    <div class="bg-danger c">&nbsp;</div>
+    <div class="bg-success c">&nbsp;</div>
+    <div class="bg-info c">&nbsp;</div>
+    <div class="bg-primary c">&nbsp;</div>
+    <div class="bg-dark c">&nbsp;</div>
+</div>
 
 <div class="row">
     <div class="col">
 
-        <uxwb-tab [default]="'Guide'" [color]="'blue'" [style]="'btn'" (switch)="logString($event)">
+        <uxwb-tab [default]="level1" [color]="'primary'" [style]="'btn'" (switch)="setLevel(1,$event)">
             <ng-template [tab]="'Guide'">
                 <div class="r">
                     <div class="c12">
@@ -34,6 +44,43 @@
                         </pre>
                     </div>
                     <div class="c12">
+                        <h3 class="m-1">themes</h3>
+                        <code class="box pre">
+                            @import "@uxwb/components/themes/rainbow";<br>
+                            @import "@uxwb/components/themes/tenderness";<br>
+                            @import "@uxwb/components/themes/summer";<br>
+                            @import "@uxwb/components/themes/twilight";
+                        </code>
+                    </div>
+                    <div class="c12">
+                        <h3 class="m-1">customization variables</h3>
+                        <code class="box pre">
+                            :root {{ '{' }}<br>
+                            --uxwb-color-secondary-bg: #e2e2e2;<br>
+                            --uxwb-color-secondary-line: #d5d5d5;<br>
+                            --uxwb-color-secondary-text: #000000;<br>
+                            --uxwb-color-warning-bg: #fff53b;<br>
+                            --uxwb-color-warning-line: #fff422;<br>
+                            --uxwb-color-warning-text: #000000;<br>
+                            --uxwb-color-danger-bg: #fd1f1f;<br>
+                            --uxwb-color-danger-line: #fd0606;<br>
+                            --uxwb-color-danger-text: #000000;<br>
+                            --uxwb-color-success-bg: #25fa96;<br>
+                            --uxwb-color-success-line: #0cf98a;<br>
+                            --uxwb-color-success-text: #000000;<br>
+                            --uxwb-color-info-bg: #4ea2fa;<br>
+                            --uxwb-color-info-line: #3595f9;<br>
+                            --uxwb-color-info-text: #FFFFFF;<br>
+                            --uxwb-color-primary-bg: #0054f3;<br>
+                            --uxwb-color-primary-line: #004bda;<br>
+                            --uxwb-color-primary-text: #FFFFFF;<br>
+                            --uxwb-color-dark-bg: #000000;<br>
+                            --uxwb-color-dark-line: black;<br>
+                            --uxwb-color-dark-text: #FFFFFF;<br>
+                            {{ '}' }}
+                        </code>
+                    </div>
+                    <div class="c12">
                         <h3 class="m-1">links</h3>
                         <code class="box pre">
                             See in <a target="_blank" href="https://www.npmjs.com/package/@uxwb/components">npmjs</a>
@@ -44,7 +91,7 @@
 
             <ng-template [tab]="'CSS Only'">
 
-                <uxwb-tab [default]="'Flex Grid'" [color]="'red'" [style]="'line'" (switch)="logString($event)">
+                <uxwb-tab [default]="level2" [color]="'danger'" [style]="'line'" (switch)="setLevel(2,$event)">
 
                     <ng-template [tab]="'Flex Grid'">
                         <app-tmpl>
@@ -111,20 +158,21 @@
                         <app-tmpl>
                         <pre #code>
                             base class: .box
-                            color class: .box-white .box-grey .box-red .box-yellow .box-green .box-blue .box-black
+                            color class: .box-light .box-secondary .box-danger .box-warning .box-success .box-info .box-primary .box-dark
 
                             <div class="box">.box</div>
-                            <div class="box-white box">.box .box-white</div>
+                            <div class="box-light box">.box .box-light</div>
                         </pre>
                             <div #preview >
                                 <div class="box">.box</div>
-                                <div class="box-white box">.box .box-white</div>
-                                <div class="box-grey box">.box .box-grey</div>
-                                <div class="box-red box">.box .box-red</div>
-                                <div class="box-yellow box">.box .box-yellow</div>
-                                <div class="box-green box">.box .box-green</div>
-                                <div class="box-blue box">.box .box-blue</div>
-                                <div class="box-black box">.box .box-black</div>
+                                <div class="box-light box">.box .box-light</div>
+                                <div class="box-secondary box">.box .box-secondary</div>
+                                <div class="box-warning box">.box .box-warning</div>
+                                <div class="box-danger box">.box .box-danger</div>
+                                <div class="box-success box">.box .box-success</div>
+                                <div class="box-info box">.box .box-info</div>
+                                <div class="box-primary box">.box .box-primary</div>
+                                <div class="box-dark box">.box .box-dark</div>
                             </div>
                         </app-tmpl>
                     </ng-template>
@@ -133,19 +181,20 @@
                         <app-tmpl>
                         <pre #code>
                             base class: .box
-                            color class: .tc-white .tc-grey .tc-red .tc-yellow .tc-green .tc-blue .tc-black
+                            color class: .tc-light .tc-secondary .tc-danger .tc-warning .tc-success .tc-info .tc-primary .tc-dark
 
-                            <div class="tc-green">.tc-green</div>
-                            <div class="tc-blue">.tc-blue</div>
+                            <div class="tc-success">.tc-success</div>
+                            <div class="tc-info">.tc-info</div>
                         </pre>
                             <div #preview >
-                                <div class="tc-white">.tc-white</div>
-                                <div class="tc-grey">.tc-grey</div>
-                                <div class="tc-red">.tc-red</div>
-                                <div class="tc-yellow">.tc-yellow</div>
-                                <div class="tc-green">.tc-green</div>
-                                <div class="tc-blue">.tc-blue</div>
-                                <div class="tc-black">.tc-black</div>
+                                <div class="tc-light">.tc-light</div>
+                                <div class="tc-secondary">.tc-secondary</div>
+                                <div class="tc-danger">.tc-danger</div>
+                                <div class="tc-warning">.tc-warning</div>
+                                <div class="tc-success">.tc-success</div>
+                                <div class="tc-info">.tc-info</div>
+                                <div class="tc-primary">.tc-primary</div>
+                                <div class="tc-dark">.tc-dark</div>
                             </div>
                         </app-tmpl>
                     </ng-template>
@@ -171,39 +220,42 @@
                         <app-tmpl>
                         <pre #code>
                             base class: .bq
-                            color class: .bq-white .bq-grey .bq-red .bq-yellow .bq-green .bq-blue .bq-black
+                            color class: .bq-light .bq-secondary .bq-danger .bq-warning .bq-success .bq-info .bq-primary .bq-dark
 
                             <blockquote class="bq">
                                 <p>.bq</p>
                             </blockquote>
-                            <blockquote class="bq bq-white">
-                                <p>.bq .bq-white</p>
+                            <blockquote class="bq bq-light">
+                                <p>.bq .bq-light</p>
                             </blockquote>
                         </pre>
                             <div #preview >
                                 <blockquote class="bq">
                                     <p>.bq</p>
                                 </blockquote>
-                                <blockquote class="bq bq-white">
-                                    <p>.bq .bq-white</p>
+                                <blockquote class="bq bq-light">
+                                    <p>.bq .bq-light</p>
                                 </blockquote>
-                                <blockquote class="bq bq-grey">
-                                    <p>.bq .bq-grey</p>
+                                <blockquote class="bq bq-secondary">
+                                    <p>.bq .bq-secondary</p>
                                 </blockquote>
-                                <blockquote class="bq bq-red">
-                                    <p>.bq .bq-red</p>
+                                <blockquote class="bq bq-danger">
+                                    <p>.bq .bq-danger</p>
                                 </blockquote>
-                                <blockquote class="bq bq-yellow">
-                                    <p>.bq .bq-yellow</p>
+                                <blockquote class="bq bq-warning">
+                                    <p>.bq .bq-warning</p>
                                 </blockquote>
-                                <blockquote class="bq bq-green">
-                                    <p>.bq .bq-green</p>
+                                <blockquote class="bq bq-success">
+                                    <p>.bq .bq-success</p>
                                 </blockquote>
-                                <blockquote class="bq bq-blue">
-                                    <p>.bq .bq-blue</p>
+                                <blockquote class="bq bq-info">
+                                    <p>.bq .bq-info</p>
                                 </blockquote>
-                                <blockquote class="bq bq-black">
-                                    <p>.bq .bq-black</p>
+                                <blockquote class="bq bq-primary">
+                                    <p>.bq .bq-primary</p>
+                                </blockquote>
+                                <blockquote class="bq bq-dark">
+                                    <p>.bq .bq-dark</p>
                                 </blockquote>
                             </div>
                         </app-tmpl>
@@ -266,7 +318,7 @@
 
             <ng-template [tab]="'Angular Components'">
 
-                <uxwb-tab [default]="'Tabs'" [color]="'yellow'" [style]="'line'" (switch)="logString($event)">
+                <uxwb-tab [default]="level2" [color]="'warning'" [style]="'line'" (switch)="setLevel(2,$event)">
 
                     <ng-template [tab]="'Tabs'">
                         <app-tmpl>
@@ -274,12 +326,12 @@
                             tag: uxwb-tab
                             attributes:
                                 [default] - tab by default
-                                [color] - color scheme ('' | 'black' | 'white' | 'grey' | 'red' | 'yellow' | 'green' | 'blue')
-                                [style] - display style ('' | 'btn' | 'line')
+                                [color] - color scheme ( 'light' | 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'primary' | 'dark')
+                                [style] - display style ( 'btn' | 'line')
                                 (switch) - callback with active tab name
 
 
-                            &lt;uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="'line'" (switch)="callback($event)"&gt;
+                            &lt;uxwb-tab [default]="'Tab1'" [color]="'warning'" [style]="'line'" (switch)="callback($event)"&gt;
                                 &lt;ng-template [tab]="'Tab1'"&gt;
                                     tab 1
                                 &lt;/ng-template&gt;
@@ -290,7 +342,7 @@
                         </pre>
                             <div #preview >
 
-                                <uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="''" (switch)="callback($event)">
+                                <uxwb-tab [default]="'Tab1'" [color]="'warning'" [style]="'btn'" (switch)="callback($event)">
                                     <ng-template [tab]="'Tab1'">
                                         tab 1
                                     </ng-template>
@@ -299,16 +351,7 @@
                                     </ng-template>
                                 </uxwb-tab>
 
-                                <uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="'btn'" (switch)="callback($event)">
-                                    <ng-template [tab]="'Tab1'">
-                                        tab 1
-                                    </ng-template>
-                                    <ng-template [tab]="'Tab2'">
-                                        tab 2
-                                    </ng-template>
-                                </uxwb-tab>
-
-                                <uxwb-tab [default]="'Tab1'" [color]="'yellow'" [style]="'line'" (switch)="callback($event)">
+                                <uxwb-tab [default]="'Tab1'" [color]="'warning'" [style]="'line'" (switch)="callback($event)">
                                     <ng-template [tab]="'Tab1'">
                                         tab 1
                                     </ng-template>
@@ -327,9 +370,9 @@
                             tag: uxwb-input
                             attributes:
                                 [type] - input type ('text' | 'password' | 'color' | 'date' | 'datetime-local' | 'email' | 'number' | 'tel' | 'search')
-                                [color] - color scheme ('' | 'black' | 'white' | 'grey' | 'red' | 'yellow' | 'green' | 'blue')
+                                [color] - color scheme ( 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'primary' | 'dark')
 
-                            &lt;uxwb-input [title]="'text'" [type]="'text'" [color]="'red'"&gt;&lt;/uxwb-input&gt;
+                            &lt;uxwb-input [title]="'text'" [type]="'text'" [color]="'danger'"&gt;&lt;/uxwb-input&gt;
                         </pre>
                             <div #preview>
                                 <div class="box mb-1">
@@ -337,15 +380,15 @@
                                 </div>
 
                                 <div class="r">
-                                    <uxwb-input [title]="'text'" [type]="'text'" [color]="'red'" [(data)]="inputData"></uxwb-input>
-                                    <uxwb-input [title]="'password'" [type]="'password'" [color]="'blue'" [(data)]="inputData"></uxwb-input>
-                                    <uxwb-input [title]="'tel'" [type]="'tel'" [color]="'black'" [(data)]="inputData"></uxwb-input>
-                                    <uxwb-input [title]="'email'" [type]="'email'" [(data)]="inputData"></uxwb-input>
-                                    <uxwb-input [title]="'number'" [type]="'number'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'text'" [type]="'text'" [color]="'secondary'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'password'" [type]="'password'" [color]="'warning'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'tel'" [type]="'tel'" [color]="'danger'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'email'" [type]="'email'" [color]="'success'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'number'" [type]="'number'" [color]="'info'" [(data)]="inputData"></uxwb-input>
                                     <uxwb-input [title]="'search'" [type]="'search'" [(data)]="inputData"></uxwb-input>
                                     <uxwb-input [title]="'color'" [type]="'color'" [(data)]="inputData"></uxwb-input>
-                                    <uxwb-input [title]="'date'" [type]="'date'" [color]="'green'" [(data)]="inputData"></uxwb-input>
-                                    <uxwb-input [title]="'datetime-local'" [type]="'datetime-local'" [color]="'yellow'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'date'" [type]="'date'" [color]="'primary'" [(data)]="inputData"></uxwb-input>
+                                    <uxwb-input [title]="'datetime-local'" [type]="'datetime-local'" [color]="'dark'" [(data)]="inputData"></uxwb-input>
                                 </div>
 
                             </div>
@@ -358,22 +401,21 @@
                             tag: uxwb-list
                             attributes:
                                 [data] - list data array (format: {{'[]{key:unique key, name:title, 1st line, desc:description, 2nd line})'}}
-                                [style] - display style ('' | 'line')
-                                [color] - color scheme ('' | 'black' | 'white' | 'grey' | 'red' | 'yellow' | 'green' | 'blue')
+                                [style] - display style ( 'box' | 'btn' | 'line' )
+                                [color] - color scheme ( 'light' | 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'primary' | 'dark')
                                 (selected) - callback with selected line key
 
-                            &lt;uxwb-list [data]="..." [style]="'line'" [color]="'red'" (selected)="callback($event)"&gt;&lt;/uxwb-list&gt;
+                            &lt;uxwb-list [data]="..." [style]="'line'" [color]="'danger'" (selected)="callback($event)"&gt;&lt;/uxwb-list&gt;
                         </pre>
                             <div #preview>
                                 <div class="r">
-                                    <uxwb-list [data]="listData" [color]="''" [style]="'line'"></uxwb-list>
-                                    <uxwb-list [data]="listData" [color]="'white'" [style]="'line'"></uxwb-list>
-                                    <uxwb-list [data]="listData" [color]="'grey'" [style]="'line'"></uxwb-list>
-                                    <uxwb-list [data]="listData" [color]="'red'" [style]="'line'" (selected)="callback($event)"></uxwb-list>
-                                    <uxwb-list [data]="listData" [color]="'yellow'" [style]="''"></uxwb-list>
-                                    <uxwb-list [data]="listData" [color]="'green'" [style]="''"></uxwb-list>
-                                    <uxwb-list [data]="listData" [color]="'blue'" [style]="''"></uxwb-list>
-                                    <uxwb-list [data]="listData" [color]="'black'" [style]="''"></uxwb-list>
+                                    <uxwb-list [data]="listData" [(key)]="listKey" [color]="'info'" [style]="'btn'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [(key)]="listKey" [color]="'secondary'" [style]="'line'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [(key)]="listKey" [color]="'danger'" [style]="'line'" (selected)="callback($event)"></uxwb-list>
+                                    <uxwb-list [data]="listData" [(key)]="listKey" [color]="'warning'" [style]="'box'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [(key)]="listKey" [color]="'success'" [style]="'box'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [(key)]="listKey" [color]="'primary'" [style]="'box'"></uxwb-list>
+                                    <uxwb-list [data]="listData" [(key)]="listKey" [color]="'dark'" [style]="'box'"></uxwb-list>
                                 </div>
                             </div>
                         </app-tmpl>

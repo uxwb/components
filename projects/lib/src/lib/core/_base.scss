@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "variables";
+@use "variables" as glob;
 
 .click {
   cursor: pointer;
@@ -22,49 +22,56 @@
   word-break: keep-all;
 }
 
-@each $c, $v in $uxwb-colors {
+@each $c, $v in glob.$uxwb-colors {
   .box#{$c} {
-    border: $uxwb-line-size solid darken($v, 10%);
-    background-color: $v;
-    color: map.get($uxwb-text-colors, $c);
+    border: glob.$uxwb-line-size solid glob.var-color-line($c);
+    background-color: glob.var-color-bg($c);
+    color: glob.var-color-text($c);
+  }
+}
+
+@each $c, $v in glob.$uxwb-colors {
+  .bg#{$c} {
+    background-color: glob.var-color-bg($c);
+    color: glob.var-color-text($c);
   }
 }
 
 .box {
-  border-radius: $uxwb-radius-size;
-  padding: $uxwb-padding-y-size $uxwb-padding-x-size;
+  border-radius: glob.$uxwb-radius-size;
+  padding: glob.$uxwb-padding-y-size glob.$uxwb-padding-x-size;
 }
 
 blockquote, .bq {
-  border-left: $uxwb-line-size*5 solid $uxwb-color-black;
+  border-left: glob.$uxwb-line-size*10 solid glob.var-color-line('-dark');
   @extend .box;
 }
 
-@each $c, $v in $uxwb-colors {
+@each $c, $v in glob.$uxwb-colors {
   .bq#{$c} {
-    border-left-color: darken($v, 3%);
+    border-left-color: glob.var-color-line($c);
   }
 }
 
-@each $c, $v in $uxwb-colors {
+@each $c, $v in glob.$uxwb-colors {
   .tc#{$c} {
-    color: darken($v, 5%);
+    color: glob.var-color-bg($c);
   }
 }
 
 @for $i from 1 through 5 {
   .m-#{$i} {
-    margin: $uxwb-base-size*$i;
+    margin: glob.$uxwb-base-size*$i;
   }
   .p-#{$i} {
-    padding: $uxwb-base-size*$i;
+    padding: glob.$uxwb-base-size*$i;
   }
-  @each $k, $v in $uxwb-prefix {
+  @each $k, $v in glob.$uxwb-prefix {
     .m#{$k}-#{$i} {
-      margin#{$v}: $uxwb-base-size*$i;
+      margin#{$v}: glob.$uxwb-base-size*$i;
     }
     .p#{$k}-#{$i} {
-      padding#{$v}: $uxwb-base-size*$i;
+      padding#{$v}: glob.$uxwb-base-size*$i;
     }
   }
 }

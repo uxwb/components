@@ -28,7 +28,7 @@ export class TmplComponent implements AfterViewInit {
       .replace(new RegExp('&lt;', 'g'), '<')
       .replace(new RegExp('&gt;', 'g'), '>')
       .replace(/[ ]{25}/ig, ' ') || '';
-    const rows = data.match(/\n/ig)?.length || 3;
+    const rows = (data.match(/\n/ig)?.length || 3) + 3;
 
     this.renderer.setProperty( this.vcc.nativeElement, 'value', data );
     this.renderer.setAttribute( this.vcc.nativeElement, 'rows', rows.toString() );

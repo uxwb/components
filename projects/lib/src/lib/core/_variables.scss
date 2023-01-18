@@ -1,32 +1,83 @@
-$uxwb-color-blue: #4B72A6 !default;
-$uxwb-color-green: #5BA698 !default;
-$uxwb-color-yellow: #F2B263 !default;
-$uxwb-color-red: #F2B28D !default;
-$uxwb-color-grey: #F2F2F2 !default;
-$uxwb-color-white: #FFFFFF !default;
-$uxwb-color-black: #000000 !default;
+@use "sass:map";
+
+@mixin color($before, $color, $after) {
+  --uxwb-color#{$before}#{$after}: #{$color};
+}
+
+@function var-color-bg($before) {
+  @return var(--uxwb-color#{$before}-bg);
+}
+
+@function var-color-text($before) {
+  @return var(--uxwb-color#{$before}-text);
+}
+
+@function var-color-line($before) {
+  @return var(--uxwb-color#{$before}-line);
+}
+
+$uxwb-color-light-bg: #FFFFFF !default;
+$uxwb-color-light-txt: #000000 !default;
+
+$uxwb-color-secondary-bg: #e2e2e2 !default;
+$uxwb-color-secondary-txt: #000000 !default;
+
+$uxwb-color-warning-bg: #F2C46D !default;
+$uxwb-color-warning-txt: #000000 !default;
+
+$uxwb-color-danger-bg: #BF8275 !default;
+$uxwb-color-danger-txt: #FFFFFF !default;
+
+$uxwb-color-success-bg: #46592A !default;
+$uxwb-color-success-txt: #FFFFFF !default;
+
+$uxwb-color-info-bg: #6997BF !default;
+$uxwb-color-info-txt: #FFFFFF !default;
+
+$uxwb-color-primary-bg: #0367A6 !default;
+$uxwb-color-primary-txt: #FFFFFF !default;
+
+$uxwb-color-dark-bg: #000000 !default;
+$uxwb-color-dark-txt: #FFFFFF !default;
+
+$uxwb-color-hover-bg: #f8f8f8 !default;
+$uxwb-color-hover-txt: #000000 !default;
 
 $uxwb-colors: (
-        "": $uxwb-color-white,
-        "-black": $uxwb-color-black,
-        "-white": $uxwb-color-white,
-        "-grey": $uxwb-color-grey,
-        "-red": $uxwb-color-red,
-        "-yellow": $uxwb-color-yellow,
-        "-green": $uxwb-color-green,
-        "-blue": $uxwb-color-blue
-) !default;
+        "": $uxwb-color-light-bg,
+        "-light": $uxwb-color-light-bg,
+        "-secondary": $uxwb-color-secondary-bg,
+        "-warning": $uxwb-color-warning-bg,
+        "-danger": $uxwb-color-danger-bg,
+        "-success": $uxwb-color-success-bg,
+        "-info": $uxwb-color-info-bg,
+        "-primary": $uxwb-color-primary-bg,
+        "-dark": $uxwb-color-dark-bg,
+);
 
 $uxwb-text-colors: (
-        "": invert($uxwb-color-white, 100%),
-        "-black": invert($uxwb-color-black, 100%),
-        "-white": invert($uxwb-color-white, 100%),
-        "-grey": darken($uxwb-color-grey, 80%),
-        "-red": darken($uxwb-color-red, 50%),
-        "-yellow": darken($uxwb-color-yellow, 50%),
-        "-green": lighten($uxwb-color-green, 35%),
-        "-blue": lighten($uxwb-color-blue, 35%)
-) !default;
+        "": $uxwb-color-light-txt,
+        "-light": $uxwb-color-light-txt,
+        "-secondary": $uxwb-color-secondary-txt,
+        "-warning": $uxwb-color-warning-txt,
+        "-danger": $uxwb-color-danger-txt,
+        "-success": $uxwb-color-success-txt,
+        "-info": $uxwb-color-info-txt,
+        "-primary": $uxwb-color-primary-txt,
+        "-dark": $uxwb-color-dark-txt,
+);
+
+:root {
+  @include color('-hover', $uxwb-color-hover-bg, '-bg');
+  @include color('-hover', darken($uxwb-color-hover-bg, 5%), '-line');
+  @include color('-hover', $uxwb-color-hover-txt, '-text');
+
+  @each $c, $v in $uxwb-colors {
+    @include color($c, $v, '-bg');
+    @include color($c, darken($v, 5%), '-line');
+    @include color($c, map.get($uxwb-text-colors, $c), '-text');
+  }
+}
 
 $uxwb-prefix: (
         "t": "-top",
@@ -38,16 +89,15 @@ $uxwb-prefix: (
 $uxwb-base-size: 1rem !default;
 $uxwb-radius-size: $uxwb-base-size*.5 !default;
 $uxwb-line-size: 1px !default;
-$uxwb-font-weight: bolder !default;
 
 $uxwb-margin-x-size: $uxwb-base-size*.75 !default;
 $uxwb-margin-y-size: $uxwb-base-size*.5 !default;
 $uxwb-padding-x-size: $uxwb-base-size*.75 !default;
 $uxwb-padding-y-size: $uxwb-base-size*.5 !default;
 
-
 $uxwb-font-family-sans-serif: -apple-system, Ubuntu, Roboto, Arial, sans-serif !default;
 $uxwb-font-family-monospace: "Ubuntu Mono", Consolas, "Courier New", monospace !default;
+$uxwb-font-weight: bolder !default;
 $uxwb-line-height: 1.2 !default;
 
 $uxwb-grid-size: 100% !default;

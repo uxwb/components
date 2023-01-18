@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Colors } from '../core/variables';
+import { ColorsShort } from '../core/variables';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export type ListStyle = '' | 'line';
+export type ListStyle = 'box' | 'btn' | 'line';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -20,14 +20,15 @@ export interface ListData {
 @Component({
   selector: 'uxwb-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  key?:string;
+  @Input() key: string = '';
 
-  @Input() color: Colors = '';
+  @Output() keyChange = new EventEmitter<string>();
 
-  @Input() style: ListStyle = '';
+  @Input() color: ColorsShort = 'secondary';
+
+  @Input() style: ListStyle = 'box';
 
   @Input() data: ListData[] = [];
 
@@ -35,6 +36,7 @@ export class ListComponent {
 
   emitData(key: string): void {
     this.key = key;
+    this.keyChange.emit(key);
     this.selected.emit(key);
   }
 }

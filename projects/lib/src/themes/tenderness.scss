@@ -1,0 +1,29 @@
+:root {
+  --uxwb-color-secondary-bg: #e2e2e2;
+  --uxwb-color-secondary-line: #{darken(#e2e2e2, 5%)};
+  --uxwb-color-secondary-text: #000000;
+
+  --uxwb-color-warning-bg: #EDB45F;
+  --uxwb-color-warning-line: #{darken(#EDB45F, 5%)};
+  --uxwb-color-warning-text: #000000;
+
+  --uxwb-color-danger-bg: #FFBB91;
+  --uxwb-color-danger-line: #{darken(#FFBB91, 5%)};
+  --uxwb-color-danger-text: #000000;
+
+  --uxwb-color-success-bg: #60AFA2;
+  --uxwb-color-success-line: #{darken(#60AFA2, 5%)};
+  --uxwb-color-success-text: #000000;
+
+  --uxwb-color-info-bg: #93C4CD;
+  --uxwb-color-info-line: #{darken(#93C4CD, 5%)};
+  --uxwb-color-info-text: #000000;
+
+  --uxwb-color-primary-bg: #3A5378;
+  --uxwb-color-primary-line: #{darken(#3A5378, 5%)};
+  --uxwb-color-primary-text: #FFFFFF;
+
+  --uxwb-color-dark-bg: #000000;
+  --uxwb-color-dark-line: #{darken(#000000, 5%)};
+  --uxwb-color-dark-text: #FFFFFF;
+}
